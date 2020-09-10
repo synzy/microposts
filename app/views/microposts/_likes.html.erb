@@ -1,5 +1,6 @@
-<ul class="list-unstyled">
-  <% microposts.each do |micropost| %>
+<% if microposts.any? %>
+  <ul class="list-unstyled">
+    <% microposts.each do |micropost| %>
     <li class="media mb-3">
       <img class="mr-2 rounded" src="<%= gravatar_url(micropost.user, {size: 50 }) %>" alt="">
       <div class="media-body">
@@ -31,6 +32,7 @@
         </div>
       </div>
     </li>
-  <% end %>
+    <% end %>
+  </ul>
   <%= paginate microposts %>
-</ul>
+<% end %>
